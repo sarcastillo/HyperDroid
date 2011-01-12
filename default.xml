@@ -8,7 +8,7 @@
            remote="korg" />
 
   <remote name="github" fetch="git://github.com/" />
-  <project path="build" name="Redux/android_build" remote="github">
+  <project path="build" name="Redux/android_build" remote="github" />
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
   <project path="bionic" name="Redux/android_bionic" remote="github"/>
