@@ -109,8 +109,8 @@
   <project path="frameworks/ex" name="platform/frameworks/ex" />
   <project path="frameworks/opt/emoji" name="platform/frameworks/opt/emoji" />
   <project path="hardware/broadcom/wlan" name="platform/hardware/broadcom/wlan" />
-  <project path="hardware/libhardware" name="platform/hardware/libhardware" />
-  <project path="hardware/libhardware_legacy" name="platform/hardware/libhardware_legacy" />
+  <project path="hardware/libhardware" name="CyanogenMod/android_hardware_libhardware" revision="gingerbread" remote="github"/>
+  <project path="hardware/libhardware_legacy" name="CyanogenMod/android_libhardware_legacy" revision="gingerbread" remote="github"/>
   <project path="hardware/msm7k" name="ihlades/android_hardware_msm7k" revision="gingerbread" remote="github"/>
   <project path="hardware/qcom/gps" name="platform/hardware/qcom/gps" />
   <project path="hardware/qcom/media" name="ihlades/android_hardware_qcom_media" revision="gingerbread" remote="github" />
