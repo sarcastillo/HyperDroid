@@ -169,6 +169,6 @@
   <project path="system/vold" name="platform/system/vold" />
   <project path="system/wlan/ti" name="platform/system/wlan/ti" />
   <project path="vendor/htc/bravo" name="ihlades/android_vendor_htc_bravo" remote="github" />
-  <project path="vendor/redux" name="ihlades/android_vendor_redux" />
+  <project path="vendor/redux" name="ihlades/android_vendor_redux" remote="github"/>
 
 </manifest>
