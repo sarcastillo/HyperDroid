@@ -18,7 +18,7 @@
   <project path="dalvik" name="platform/dalvik" />
   <project path="development" name="platform/development" />
   <project path="device/common" name="device/common" />
-  <project path="device/htc/common" name="ihlades/android_device_htc_bravo" remote="github" />
+  <project path="device/htc/bravo" name="ihlades/android_device_htc_bravo" remote="github" />
   <project path="device/htc/common" name="device/htc/common" />
   <project path="external/apache-http" name="platform/external/apache-http" />
   <project path="external/astl" name="platform/external/astl" />
