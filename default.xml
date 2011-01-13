@@ -161,7 +161,7 @@
   <project path="packages/wallpapers/MusicVisualization" name="platform/packages/wallpapers/MusicVisualization" />
   <project path="prebuilt" name="platform/prebuilt" />
   <project path="sdk" name="platform/sdk" />
-  <project path="system/bluetooth" name="CyanogenMod/android_system_bluetooth" revision="gingerbread" remote="github"/>
+  <project path="system/bluetooth" name="CyanogenMod/android_system_bluetooth" revision="froyo" remote="github"/>
   <project path="system/core" name="ihlades/android_system_core" remote="github" />
   <project path="system/extras" name="ihlades/android_system_extras" revision="gingerbread" remote="github" />
   <project path="system/media" name="platform/system/media" />
