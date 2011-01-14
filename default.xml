@@ -3,14 +3,14 @@
   <remote  name="korg"
            fetch="git://android.git.kernel.org/"
            review="review.source.android.com" />
-  <default revision="master"
+  <default revision="gingerbread"
            remote="korg" />
 
   <remote name="github" fetch="git://github.com/" />
-  <project path="build" name="ihlades/android_build" remote="github">
+  <project path="build" name="Redux/android_build" remote="github">
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
-  <project path="bionic" name="ihlades/android_bionic" remote="github"/>
+  <project path="bionic" name="Redux/android_bionic" remote="github"/>
   <project path="bootable/bootloader/legacy" name="platform/bootable/bootloader/legacy" />
   <project path="bootable/diskinstaller" name="platform/bootable/diskinstaller" />
   <project path="bootable/recovery" name="platform/bootable/recovery" />
@@ -18,7 +18,7 @@
   <project path="dalvik" name="platform/dalvik" />
   <project path="development" name="platform/development" />
   <project path="device/common" name="device/common" />
-  <project path="device/htc/bravo" name="ihlades/android_device_htc_bravo" remote="github" />
+  <project path="device/htc/bravo" name="Redux/android_device_htc_bravo" remote="github" />
   <project path="device/htc/common" name="device/htc/common" />
   <project path="external/apache-http" name="platform/external/apache-http" />
   <project path="external/astl" name="platform/external/astl" />
@@ -105,15 +105,15 @@
   <project path="external/xmlwriter" name="platform/external/xmlwriter" />
   <project path="external/yaffs2" name="platform/external/yaffs2" />
   <project path="external/zlib" name="platform/external/zlib" />
-  <project path="frameworks/base" name="ihlades/android_frameworks_base" remote="github"/>
+  <project path="frameworks/base" name="Redux/android_frameworks_base" remote="github"/>
   <project path="frameworks/ex" name="platform/frameworks/ex" />
   <project path="frameworks/opt/emoji" name="platform/frameworks/opt/emoji" />
   <project path="hardware/broadcom/wlan" name="platform/hardware/broadcom/wlan" />
-  <project path="hardware/libhardware" name="CyanogenMod/android_hardware_libhardware" revision="gingerbread" remote="github"/>
-  <project path="hardware/libhardware_legacy" name="CyanogenMod/android_hardware_libhardware_legacy" revision="gingerbread" remote="github"/>
-  <project path="hardware/msm7k" name="ihlades/android_hardware_msm7k" revision="gingerbread" remote="github"/>
+  <project path="hardware/libhardware" name="platform/hardware/libhardware"/>
+  <project path="hardware/libhardware_legacy" name="platform/hardware/libhardware_legacy" />
+  <project path="hardware/msm7k" name="Redux/android_hardware_msm7k" revision="gingerbread" remote="github"/>
   <project path="hardware/qcom/gps" name="platform/hardware/qcom/gps" />
-  <project path="hardware/qcom/media" name="ihlades/android_hardware_qcom_media" revision="gingerbread" remote="github" />
+  <project path="hardware/qcom/media" name="Redux/android_hardware_qcom_media" revision="gingerbread" remote="github" />
   <project path="hardware/ril" name="platform/hardware/ril" />
   <project path="hardware/ti/omap3" name="platform/hardware/ti/omap3" />
   <project path="hardware/ti/wlan" name="platform/hardware/ti/wlan" />
@@ -122,35 +122,35 @@
   <project path="packages/apps/AccountsAndSyncSettings" name="platform/packages/apps/AccountsAndSyncSettings" />
   <project path="packages/apps/AndroidTerm" name="CyanogenMod/android_packages_apps_AndroidTerm" remote="github" />
   <project path="packages/apps/Bluetooth" name="platform/packages/apps/Bluetooth" />
-  <project path="packages/apps/Browser" name="ihlades/android_packages_apps_Browser" remote="github"/>
+  <project path="packages/apps/Browser" name="Redux/android_packages_apps_Browser" remote="github"/>
   <project path="packages/apps/Calculator" name="platform/packages/apps/Calculator" />
   <project path="packages/apps/Calendar" name="platform/packages/apps/Calendar" />
-  <project path="packages/apps/Camera" name="ihlades/android_packages_apps_Camera" remote="github"/>
+  <project path="packages/apps/Camera" name="Redux/android_packages_apps_Camera" remote="github"/>
   <project path="packages/apps/CertInstaller" name="platform/packages/apps/CertInstaller" />
   <project path="packages/apps/Contacts" name="platform/packages/apps/Contacts" />
   <project path="packages/apps/DeskClock" name="platform/packages/apps/DeskClock" />
   <project path="packages/apps/Email" name="platform/packages/apps/Email" />
-  <project path="packages/apps/FM" name="ihlades/android_packages_apps_FM" revision="gingerbread" remote="github" />
+  <project path="packages/apps/FM" name="Redux/android_packages_apps_FM" revision="gingerbread" remote="github" />
   <project path="packages/apps/Gallery" name="platform/packages/apps/Gallery" />
   <project path="packages/apps/Gallery3D" name="platform/packages/apps/Gallery3D" />
   <project path="packages/apps/HTMLViewer" name="platform/packages/apps/HTMLViewer" />
   <project path="packages/apps/Launcher2" name="platform/packages/apps/Launcher2" />
-  <project path="packages/apps/Mms" name="ihlades/android_packages_apps_Mms" remote="github"/>
+  <project path="packages/apps/Mms" name="Redux/android_packages_apps_Mms" remote="github"/>
   <project path="packages/apps/Music" name="platform/packages/apps/Music" />
   <project path="packages/apps/Nfc" name="platform/packages/apps/Nfc" />
   <project path="packages/apps/PackageInstaller" name="platform/packages/apps/PackageInstaller" />
-  <project path="packages/apps/Phone" name="ihlades/android_packages_apps_Phone" remote="github"/>
-  <project path="packages/apps/Settings" name="ihlades/android_packages_apps_Settings" remote="github" />
+  <project path="packages/apps/Phone" name="platform/packages/apps/Phone" />
+  <project path="packages/apps/Settings" name="Redux/android_packages_apps_Settings" remote="github" />
   <project path="packages/apps/SoundRecorder" name="platform/packages/apps/SoundRecorder" />
   <project path="packages/apps/SpeechRecorder" name="platform/packages/apps/SpeechRecorder" />
-  <project path="packages/apps/Stk" name="ihlades/android_packages_apps_Stk" remote="github" />
+  <project path="packages/apps/Stk" name="platform/packages/apps/Stk" />
   <project path="packages/apps/Superuser" name="CyanogenMod/android_packages_apps_Superuser" revision="gingerbread" remote="github" />
   <project path="packages/apps/VoiceDialer" name="platform/packages/apps/VoiceDialer" />
   <project path="packages/inputmethods/LatinIME" name="platform/packages/inputmethods/LatinIME" />
   <project path="packages/providers/ApplicationsProvider" name="platform/packages/providers/ApplicationsProvider" />
   <project path="packages/providers/CalendarProvider" name="platform/packages/providers/CalendarProvider" />
   <project path="packages/providers/ContactsProvider" name="platform/packages/providers/ContactsProvider" />
-  <project path="packages/providers/DownloadProvider" name="ihlades/android_packages_providers_DownloadProvider" revision="gingerbread" remote="github" />
+  <project path="packages/providers/DownloadProvider" name="Redux/android_packages_providers_DownloadProvider" revision="gingerbread" remote="github" />
   <project path="packages/providers/DrmProvider" name="platform/packages/providers/DrmProvider" />
   <project path="packages/providers/MediaProvider" name="platform/packages/providers/MediaProvider" />
   <project path="packages/providers/TelephonyProvider" name="platform/packages/providers/TelephonyProvider" />
@@ -161,14 +161,14 @@
   <project path="packages/wallpapers/MusicVisualization" name="platform/packages/wallpapers/MusicVisualization" />
   <project path="prebuilt" name="platform/prebuilt" />
   <project path="sdk" name="platform/sdk" revision="tools_r7" />
-  <project path="system/bluetooth" name="CyanogenMod/android_system_bluetooth" revision="froyo" remote="github"/>
-  <project path="system/core" name="ihlades/android_system_core" remote="github" />
-  <project path="system/extras" name="ihlades/android_system_extras" revision="gingerbread" remote="github" />
+  <project path="system/bluetooth" name="platform/system/bluetooth" />
+  <project path="system/core" name="Redux/android_system_core" remote="github" />
+  <project path="system/extras" name="Redux/android_system_extras" revision="gingerbread" remote="github" />
   <project path="system/media" name="platform/system/media" />
   <project path="system/netd" name="platform/system/netd" />
   <project path="system/vold" name="platform/system/vold" />
   <project path="system/wlan/ti" name="platform/system/wlan/ti" />
-  <project path="vendor/htc/bravo" name="ihlades/android_vendor_htc_bravo" remote="github" />
-  <project path="vendor/redux" name="ihlades/android_vendor_redux" remote="github"/>
+  <project path="vendor/htc/bravo" name="Redux/android_vendor_htc_bravo" remote="github" />
+  <project path="vendor/redux" name="Redux/android_vendor_redux" remote="github"/>
 
 </manifest>
