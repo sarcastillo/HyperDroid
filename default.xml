@@ -101,7 +101,7 @@
   <project path="external/v8" name="platform/external/v8" revision="master"/>
   <project path="external/webkit" name="platform/external/webkit" revision="master"/>
   <project path="external/wpa_supplicant" name="platform/external/wpa_supplicant" revision="master"/>
-  <project path="external/wpa_supplicant_6" name="CyanogenMod/android_external_wpa_supplicant_6" revision="gingerbread" remote="github" />
+  <project path="external/wpa_supplicant_6" name="platform/external/wpa_supplicant_6" revision="master" />
   <project path="external/xmlwriter" name="platform/external/xmlwriter" revision="master"/>
   <project path="external/yaffs2" name="platform/external/yaffs2" revision="master"/>
   <project path="external/zlib" name="platform/external/zlib" revision="master"/>
