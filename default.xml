@@ -46,6 +46,7 @@
   <project path="external/esd" name="platform/external/esd" revision="master"/>
   <project path="external/expat" name="platform/external/expat" revision="master"/>
   <project path="external/fdlibm" name="platform/external/fdlibm" revision="master"/>
+  <project path="external/flac" name="CyanogenMod/android_external_flac" remote="github" />
   <project path="external/freetype" name="platform/external/freetype" revision="master"/>
   <project path="external/fsck_msdos" name="platform/external/fsck_msdos" revision="master"/>
   <project path="external/genext2fs" name="platform/external/genext2fs" revision="master"/>
