@@ -72,7 +72,7 @@
   <project path="external/libpng" name="platform/external/libpng" revision="master"/>
   <project path="external/libvpx" name="platform/external/libvpx" revision="master"/>
   <project path="external/libxml2" name="platform/external/libxml2" revision="master"/>
-  <project path="external/mtpd" name="platform/external/mtpd" revision="master"/>
+  <project path="external/mtpd" name="CyanogenMod/android_external_mtpd" remote="github" />
   <project path="external/netcat" name="platform/external/netcat" revision="master"/>
   <project path="external/netperf" name="platform/external/netperf" revision="master"/>
   <project path="external/neven" name="platform/external/neven" revision="master"/>
@@ -137,7 +137,7 @@
   <project path="packages/apps/HTMLViewer" name="platform/packages/apps/HTMLViewer" />
   <project path="packages/apps/Launcher2" name="platform/packages/apps/Launcher2" />
   <project path="packages/apps/Mms" name="Redux/android_packages_apps_Mms" remote="github" revision="master"/>
-  <project path="packages/apps/Music" name="platform/packages/apps/Music" />
+  <project path="packages/apps/Music" name="Redux/android_packages_apps_Music" remote="github" revision="master"/>
   <project path="packages/apps/Nfc" name="platform/packages/apps/Nfc" />
   <project path="packages/apps/PackageInstaller" name="platform/packages/apps/PackageInstaller" />
   <project path="packages/apps/Phone" name="Redux/android_packages_apps_Phone" remote="github" revision="master"/>
