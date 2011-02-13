@@ -172,6 +172,6 @@
   <project path="system/wlan/ti" name="platform/system/wlan/ti" />
   <project path="vendor/htc/bravo" name="Redux/android_vendor_htc_bravo" remote="github" revision="master" />
   <project path="vendor/htc/leo" name="pongster/HyperDroid/vendor/htc/leo" remote="github" revision="master" />
-  <project path="vendor/hyperdroid" name="pongster/HyperDroid /vendor/hyperdroid" remote="github" revision="master" />
+  <project path="vendor/hyperdroid" name="pongster/HyperDroid/vendor/hyperdroid" remote="github" revision="master" />
 
 </manifest>
