@@ -19,6 +19,7 @@
   <project path="development" name="platform/development" />
   <project path="device/common" name="device/common" />
   <project path="device/htc/bravo" name="Redux/android_device_htc_bravo" remote="github" revision="master"/>
+  <project path="device/htc/leo" name="HyperDroid/device/htc/leo" remote="github" revision="master"/>
   <project path="device/htc/common" name="device/htc/common" />
   <project path="external/apache-http" name="platform/external/apache-http" />
   <project path="external/astl" name="platform/external/astl" revision="master"/>
@@ -170,6 +171,7 @@
   <project path="system/vold" name="platform/system/vold" />
   <project path="system/wlan/ti" name="platform/system/wlan/ti" />
   <project path="vendor/htc/bravo" name="Redux/android_vendor_htc_bravo" remote="github" revision="master"/>
-  <project path="vendor/redux" name="Redux/android_vendor_redux" remote="github" revision="master"/>
+  <project path="vendor/htc/leo" name="HyperDroid/vendor/htc/leo" remote="github" revision="master"/>
+  <project path="vendor/hyperdroid" name="HyperDroid/android_vendor_hyperdroid" remote="github" revision="master"/>
 
 </manifest>
