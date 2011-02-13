@@ -1,7 +1,7 @@
 #!/bin/bash
 #Checkout and compile REDUX repositories from source.android.com
 
-SOURCE_FOLDER=/Volumes/HyperDroidWorkspace
+SOURCE_FOLDER=/Volumes/HyperDroidWorkspace/HyperDroid
 
 #Create project folder
 if [ ! -d $SOURCE_FOLDER ]
@@ -15,15 +15,15 @@ cd $SOURCE_FOLDER
 make installclean
 make clean
 
-#Copy buildspec for Desire (until I figure out way to build directly for HD2)
-cp vendor/redux/products/leo.mk ./buildspec.mk
+#Copy buildspec for Leo
+cp vendor/hyperdroid/products/leo.mk ./buildspec.mk
 
 #setup compiling environment and build images
 cd $SOURCE_FOLDER
 . build/envsetup.sh
 
 lunch htc_leo-user
-make -j4 redux
+make -j4 hyperdroid
 
 #get to compiled folder
 cd $SOURCE_FOLDER/out/target/product/leo/
