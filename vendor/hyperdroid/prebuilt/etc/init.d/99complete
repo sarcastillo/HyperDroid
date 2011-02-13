@@ -1,0 +1,5 @@
+#!/system/bin/sh
+
+sync;
+setprop and.filesystem.ready 1;
+

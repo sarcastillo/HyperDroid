@@ -1,0 +1,122 @@
+#!/system/bin/sh
+#
+# Apps2SD using symlinks and bind mounts
+# Original Apps2SD script by shade@chemlab.org (cyanogen)
+# Adapted for Oxygen ROM by AdamG
+# Fixed for slow detection of SD cards by _thalamus and output a bit more debugging info so we can see where problems are arising.
+
+# execute any postinstall script then kill it
+   
+
+enablea2sd () {
+	# mount and set perms
+    busybox mount -o noatime,nodiratime -t auto /dev/block/mmcblk0p2 /sd-ext;
+    busybox chown 1000:1000 /sd-ext;
+    busybox chmod 771 /sd-ext;
+
+    # clean up any old symlinks, create data directories
+    for i in data;
+	do
+		if [ -h /data/$i ];
+		then
+			rm /data/$i;
+		fi;
+		if [ ! -d /data/$i ];
+		then
+			mkdir /data/$i;
+			busybox chown 1000:1000 /data/$i;
+			busybox chmod 771 /data/$i;
+		fi;
+	done;
+
+    # don't allow /data/data on sd because of upgrade issues - move it if possible
+    if [ -d /sd-ext/data ];
+    then
+        busybox cp -a /sd-ext/data/* /data/data/;
+        busybox rm -rf /sd-ext/data;
+    fi;
+
+    # move apps from internal memory to sdcard
+    for i in app app-private;
+    do
+        if [ ! -d /sd-ext/$i ];
+        then
+            mkdir /sd-ext/$i;
+        fi
+
+        busybox chown 1000:1000 /sd-ext/$i;
+        busybox chmod 771 /sd-ext/$i
+	    
+        if [ -d /data/$i ] && [ ! -h /data/$i ];
+        then
+            busybox cp -a /data/$i/* /sd-ext/$i/;
+            busybox rm -f /data/$i/*;
+        fi;
+    done;
+
+    # symlink app dirs - they must be on the same filesystem
+    for i in app app-private;
+    do
+        if [ -d /data/$i ] && [ ! -h /data/$i ];
+        then
+            busybox rm -rf /data/$i;
+            busybox ln -s /sd-ext/$i /data/$i;
+        fi;
+    done;
+
+    # clean up old whiteouts
+    for i in local misc property system tombstones data;
+    do
+        if [ -h /sd-ext/$i ]; then rm -f /sd-ext/$i; fi
+    done;
+
+    # please don't put odex files in the app directory people!
+    # it causes dexopt to crash when switching builds!
+    busybox rm -f /sd-ext/app/*.odex
+
+    setprop oxygen.a2sd.active 1;
+    
+    echo "+++ Apps-to-SD successfully enabled";
+
+}
+
+disablea2sd() {    # replace symlinks with directories so we can boot without sd
+    for i in app app-private;
+    do
+       if [ -h /data/$i ];
+       then
+            rm -f /data/$i;
+            mkdir /data/$i;
+            busybox chown 1000:1000 /data/$i;
+            busybox chmod 771 /data/$i;
+        fi;
+    done;
+
+    setprop oxygen.a2sd.active 0;
+}
+
+
+if [ -e /dev/block/mmcblk0p1 ]; # We check for the presence of the FAT partition first to see if the SD has initialised.
+	then
+	echo "SD Card has been initialised...checking for ext partition.";
+		if  [ -e /dev/block/mmcblk0p2 ]; # If false, it isn't there so we don't have to sleep the script and delay the boot.
+		then
+			enablea2sd;
+		else
+			echo "No ext partition present, apps2sd disabled";
+			disablea2sd;
+		fi;
+		
+	else
+		sleep 4; #Enables time for a slow SD to be detected and populate the device nodes.
+		if [ -e /dev/block/mmcblk0p2 ];
+			then
+				echo "enablea2sd for slow SD card";
+				enablea2sd;
+			else
+				echo "No ext partition present after sleep, apps2sd disabled";
+				disablea2sd;
+			fi;
+	fi;
+
+sync;

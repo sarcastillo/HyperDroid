@@ -1,0 +1,113 @@
+#!/system/bin/sh
+#
+# Enable Dalvik2SD
+
+if [ -e /dev/block/mmcblk0p2 ];
+then
+    echo "--- enabling dalvik2sd"
+    
+    # check if mmcblk0p2 isn't already mounted by other scripts
+    if [ $(busybox mount|grep /dev/block/mmcblk0p2|wc -l) -eq 0 ] ; then
+        # fsck the sdcard filesystem first
+        e2fsck -y /dev/block/mmcblk0p2;
+
+        # set property with exit code in case an error occurs
+        setprop cm.e2fsck.errors $?;
+
+        # mount and set perms
+        busybox mount -o noatime,nodiratime -t auto /dev/block/mmcblk0p2 /sd-ext;
+    fi
+
+    if [ $(busybox mount|grep /dev/block/mmcblk0p2|wc -l) -eq 1 ];
+    then
+        busybox chown 1000:1000 /sd-ext;
+        busybox chmod 771 /sd-ext;
+
+        # clean up any old symlinks, create data directories
+        for i in dalvik-cache;
+        do
+            if [ -h /data/$i ];
+            then
+                rm /data/$i;
+            fi;
+            if [ -h /cache/$i ];
+            then
+                rm /cache/$i;
+            fi;
+            if [ ! -d /data/$i ];
+            then
+                mkdir /data/$i;
+                busybox chown 1000:1000 /data/$i;
+                busybox chmod 771 /data/$i;
+            fi;
+        done;
+
+        # don't allow /data/data on sd because of upgrade issues - move it if possible
+        if [ -d /sd-ext/data ];
+        then
+            busybox cp -a /sd-ext/data/* /data/data/;
+            busybox rm -rf /sd-ext/data;
+        fi;
+
+        # move dalvik cache from internal memory to sdcard
+        for i in dalvik-cache;
+        do
+            if [ ! -d /sd-ext/$i ];
+            then
+                mkdir /sd-ext/$i;
+            fi
+
+            busybox chown 1000:1000 /sd-ext/$i;
+            busybox chmod 771 /sd-ext/$i
+
+            if [ -d /data/$i ] && [ ! -h /data/$i ];
+            then
+                busybox cp -a /data/$i/* /sd-ext/$i/;
+                busybox rm -f /data/$i/*;
+            fi;
+        done;
+
+        # symlink dc dir - they must be on the same filesystem
+        for i in dalvik-cache;
+        do
+            if [ -d /data/$i ] && [ ! -h /data/$i ];
+            then
+                busybox rm -rf /data/$i;
+                busybox ln -s /sd-ext/$i /data/$i;
+            fi;
+        done;
+
+        # clean up old whiteouts
+        for i in local misc property system tombstones data;
+        do
+            if [ -h /sd-ext/$i ]; then rm -f /sd-ext/$i; fi
+        done;
+
+        # please don't put odex files in the app directory people!
+        # it causes dexopt to crash when switching builds!
+        busybox rm -f /sd-ext/app/*.odex
+
+        setprop cm.dc2sd.active 1;
+
+        echo "+++ dalvik2sd enabled"
+    else
+        echo "*** unable to mount filesystem for dalvik2sd";
+    fi
+fi
+
+DC2SD_ACTIVE=`getprop cm.dc2sd.active`
+
+if [ "$DC2SD_ACTIVE" != 1 ];
+then
+    # replace symlinks with directories so we can boot without sd
+    for i in dalvik-cache;
+    do
+       if [ -h /data/$i ];
+       then
+            rm -f /data/$i;
+            mkdir /data/$i;
+            busybox chown 1000:1000 /data/$i;
+            busybox chmod 771 /data/$i;
+        fi;
+    done;
+fi;
