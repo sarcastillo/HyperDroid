@@ -19,6 +19,26 @@
 # not specialized for any geography.
 #
 
+# Inherit AOSP device configuration for bravo.
+$(call inherit-product, device/htc/leo/full_leo.mk)
+
+# Inherit some common cyanogenmod stuff.
+$(call inherit-product, vendor/hyperdroid/products/common.mk)
+
+# Include GSM stuff
+$(call inherit-product, vendor/hyperdroid/products/gsm.mk)
+
+# Setup device specific product configuration.
+PRODUCT_NAME := htc_leo
+PRODUCT_DEVICE := leo
+PRODUCT_BRAND := htc_wwe
+PRODUCT_MODEL := HTC HD2
+PRODUCT_MANUFACTURER := HTC
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_ID=FRF91 BUILD_DISPLAY_ID=GRH78C PRODUCT_NAME=htc_bravo BUILD_FINGERPRINT=htc_wwe/htc_bravo/bravo/bravo:2.2/FRF91/226611:user/release-keys TARGET_BUILD_TYPE=userdebug BUILD_VERSION_TAGS=release-keys PRIVATE_BUILD_DESC="2.10.405.2 CL226611 release-keys"
+
+# Extra Leo (CDMA/GSM) overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/hyperdroid/overlay/leo
+
 # The gps config appropriate for this device
 PRODUCT_COPY_FILES += \
     device/htc/leo/gps.conf:system/etc/gps.conf
@@ -43,7 +63,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsupa.category=5 \
     ro.ril.hsxpa=2 \
     wifi.interface=eth0 \
-    wifi.supplicant_scan_interval=15
+    wifi.supplicant_scan_interval=60
+    ro.modversion=HyperDroid-GBX
 
 # Default network type.
 # 0 => WCDMA preferred.
@@ -133,17 +154,23 @@ PRODUCT_COPY_FILES += \
 
 #GSM APN LIST
 PRODUCT_COPY_FILES += \
-vendor/redux/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
+    vendor/hyperdroid/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
+
 
 PRODUCT_COPY_FILES += \
     device/htc/leo/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
     device/htc/leo/modules/cifs.ko:system/lib/modules/cifs.ko \
+    device/htc/leo/modules/msm_rmnet.ko:system/lib/modules/msm_rmnet.ko \
+    device/htc/leo/modules/nls_utf8.ko:system/lib/modules/nls_utf8.ko \
     device/htc/leo/modules/fuse.ko:system/lib/modules/fuse.ko \
     device/htc/leo/modules/tun.ko:system/lib/modules/tun.ko
 
 PRODUCT_COPY_FILES += \
     device/htc/leo/zImage:boot/zImage \
     device/htc/leo/initrd.gz:boot/initrd.gz \
+    device/htc/leo/updater-script:updater-script \
+    vendor/htc/leo/proprietary/lights.qsd8k.so:system/lib/hw/lights.qsd8k.so \
+    vendor/hyperdroid/proprietary/Zeam.apk:system/app/Zeam.apk
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/htc/leo/kernel
@@ -156,13 +183,3 @@ PRODUCT_COPY_FILES += \
 
 # media profiles and capabilities spec
 $(call inherit-product, device/htc/leo/media_a1026.mk)
-
-# stuff common to all HTC phones
-$(call inherit-product, device/htc/common/common.mk)
-
-# Setup device specific product configuration.
-PRODUCT_NAME := htc_leo
-PRODUCT_DEVICE := leo
-PRODUCT_BRAND := htc_wwe
-PRODUCT_MODEL := HTC HD2
-PRODUCT_MANUFACTURER := HTC

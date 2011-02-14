@@ -50,12 +50,10 @@ PRODUCT_COPY_FILES += \
     vendor/hyperdroid/prebuilt/bin/fix_permissions:system/bin/fix_permissions \
     vendor/hyperdroid/prebuilt/bin/sysinit:system/bin/sysinit \
     vendor/hyperdroid/prebuilt/bin/zipalign:system/bin/zipalign \
-    vendor/hyperdroid/prebuilt/bin/vold:system/bin/vold \
     vendor/hyperdroid/prebuilt/xbin/htop:system/xbin/htop \
     vendor/hyperdroid/prebuilt/xbin/irssi:system/xbin/irssi \
     vendor/hyperdroid/prebuilt/xbin/powertop:system/xbin/powertop \
     vendor/hyperdroid/prebuilt/xbin/openvpn-up.sh:system/xbin/openvpn-up.sh
-#    vendor/hyperdroid/prebuilt/etc/init.d/90screenstate_scaling:system/etc/init.d/90screenstate_scaling
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -96,7 +94,6 @@ PRODUCT_COPY_FILES += \
 	vendor/hyperdroid/proprietary/gapps/framework/com.google.android.maps.jar:/system/framework/com.google.android.maps.jar \
 	vendor/hyperdroid/proprietary/gapps/lib/libmicrobes_jni.so:/system/lib/libmicrobes_jni.so \
 	vendor/hyperdroid/proprietary/gapps/lib/libvoicesearch.so:/system/lib/libvoicesearch.so
-#	vendor/hyperdroid/proprietary/gapps/app/googlevoice.apk:/system/app/GoogleVoice.apk
 
 # add the new boot animation
 PRODUCT_COPY_FILES += \

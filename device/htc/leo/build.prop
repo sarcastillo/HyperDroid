@@ -6,7 +6,7 @@ ro.build.version.incremental=93600
 ro.build.version.sdk=9
 ro.build.version.codename=REL
 ro.build.version.release=2.3.2
-ro.build.date=Jan 11:11:11 EST 2011
+ro.build.date=Feb 11:11:11 EST 2011
 ro.build.date.utc=1111111111
 ro.build.type=user
 ro.build.user=root
@@ -15,8 +15,8 @@ ro.build.tags=release-keys
 ro.product.model=HD2
 ro.product.brand=htc_wwe
 ro.product.name=htc_bravo
-ro.product.device=bravo
-ro.product.board=bravo
+ro.product.device=leo
+ro.product.board=leo
 ro.product.cpu.abi=armeabi-v7a
 ro.product.cpu.abi2=armeabi
 ro.product.manufacturer=HTC
@@ -25,7 +25,7 @@ ro.product.locale.region=US
 ro.wifi.channels=
 ro.board.platform=qsd8k
 # ro.build.product is obsolete; use ro.product.device
-ro.build.product=bravo
+ro.build.product=leo
 # Do not try to parse ro.build.description or .fingerprint
 ro.build.description=passion-user 2.3.2 GRH78C 93600 release-keys
 ro.build.fingerprintforcheckin=htc_wwe/htc_bravo/bravo/bravo:2.3.2/GRH78C/93600:user/release-keys
@@ -127,7 +127,7 @@ dalvik.vm.dexopt-flags=m=y
 dalvik.vm.dexopt-data-only=1
 xmpp.auto-presence=true
 ro.config.nocheckin=yes
-ro.modversion=HyperDroid GBX v4.0
+ro.modversion=HyperDroid GBX v5.0
 net.bt.name=HyperDroid HD2
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
 
